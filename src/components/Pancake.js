@@ -12,6 +12,12 @@ class Pancake extends React.Component {
 
   // TODO: create a componentDidMount() which will start the interval to count how long the pancake has been cooking
 
+ componentDidMount = () => {
+    this.setState({
+      timeCooked: this.state.timeCooked + 1
+    });
+  };
+  
   // TODO: create a componentWillUnmount() which will clear the interval
 
   updateCounter = () => {
@@ -20,6 +26,10 @@ class Pancake extends React.Component {
     });
   };
 
+ componentWillUnmount = () => {
+    clearInterval(this.interval);
+    });
+  };
   startInterval = () => {
     this.interval = setInterval(this.updateCounter, 1000);
   };
